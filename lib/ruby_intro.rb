@@ -30,15 +30,22 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+	return "Hello, " + name
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+	require 'set'
+	case s.length
+	when 0
+		return false
+	else
+		vowels = Set['A', 'E', 'I', 'O', 'U']
+		return (not vowels.include?(s[0].upcase) and s[0] =~ /[[:alpha:]]/)
+	end
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+	return ((s =~ /^[01]+$/ and s.end_with? '00') or s == '0')
 end
 
 # Part 3
