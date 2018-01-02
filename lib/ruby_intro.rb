@@ -13,27 +13,18 @@ def max_2_sum arr
 	else
 		return arr.max(2).reduce(:+)
 	end
-
-	# case arr.length
-	# when 0
-	# 	return 0
-	# when 1
-	# 	return arr[0]
-	# else
-	# 	first, second = arr.take(2)
-	# 	for curr in arr.drop(2)
-	# 		if curr > first
-	# 			first, second = curr, first
-	# 		elsif curr > second
-	# 			second = curr
-	# 		end
-	# 	end
-	# 	return first + second
-	# end
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+	require 'set'
+	seen = Set.new()
+	for curr in arr
+		if seen.include?(n-curr)
+			return true
+		end
+		seen.add(curr)
+	end
+	return false
 end
 
 # Part 2
